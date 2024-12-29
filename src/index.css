@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'palette-black';
+  src: url('../palette_3/Palette\ Black.ttf');
+}
+
+@font-face {
+  font-family: 'palette-bold';
+  src: url('../palette_3/Palette\ Bold.ttf');
+}
+
+@font-face {
+  font-family: 'palette-light';
+  src: url('../palette_3/Palette\ Light.ttf');
+}
+
+@font-face {
+  font-family: 'palette-regular';
+  src: url('../palette_3/Palette\ Regular.ttf');
+}
+
+@font-face {
+  font-family: 'palette-thin';
+  src: url('../palette_3/Palette\ Thin.ttf');
+}
+
+:root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  line-height: 1.5;
+
+  color: #fff;
+  background: linear-gradient(to bottom, #212121, #151515);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 550vh;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+

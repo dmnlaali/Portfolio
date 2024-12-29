@@ -1,0 +1,35 @@
+
+:root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  line-height: 1.5;
+
+  color: #fff;
+  background: linear-gradient(to bottom, #212121, #151515);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 550vh;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+@media screen and (max-width: 768px) {
+  body {
+    width: 90%;
+  }
+}

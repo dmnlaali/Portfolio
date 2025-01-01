@@ -100,13 +100,20 @@ function App() {
         <h1 className="hidden section-title">Projects<i className="fa-solid fa-folder-open"></i></h1>
         <div className='project-container'>
           <div className='project-card'>
+            <h2>GoalShare</h2>
+            <p>An app that helps you share your goals with your friends and others on the same platform.</p>
+            <span>Next.js</span>
+            <span>Tailwind CSS</span>
+            <span>JavaScript</span>
+            <button className='project-button' onClick={() => window.open('https://goalshare.netlify.app/', '_blank', 'noopener,noreferrer')}>View Project <i className="fa-solid fa-arrow-right"></i></button>
+          </div>
+          <div className='project-card'>
             <h2>Unplug</h2>
             <p>An app that helps you reduce your screen time and improve your mental health.</p>
             <span>React Native</span>
             <span>Node.js</span>
             <span>SQL</span>
             <button className='project-button' onClick={viewProject}>View Project <i className="fa-solid fa-arrow-right"></i></button>
-            <button className='code-button' onClick={viewProject}>Code <i className="fa-solid fa-code"></i></button>
           </div>
           <div className='project-card'>
             <h2>Ubudget</h2>
@@ -115,7 +122,6 @@ function App() {
             <span>Node.js</span>
             <span>SQL</span>
             <button className='project-button' onClick={viewProject}>View Project <i className="fa-solid fa-arrow-right"></i></button>
-            <button className='code-button' onClick={viewProject}>Code <i className="fa-solid fa-code"></i></button>
           </div>
           <div className='project-card'>
             <h2>BookCalc</h2>
@@ -124,7 +130,6 @@ function App() {
             <span>CSS</span>
             <span>JavaScript</span>
             <button className='project-button' onClick={viewProject}>View Project <i className="fa-solid fa-arrow-right"></i></button>
-            <button className='code-button' onClick={viewProject}>Code <i className="fa-solid fa-code"></i></button>
           </div>
           <div className='project-card'>
             <h2>None, Yet!</h2>
@@ -134,7 +139,6 @@ function App() {
             <span>None</span>
             <span>None</span>
             <button className='project-button' onClick={viewProject}>View Project <i className="fa-solid fa-arrow-right"></i></button>
-            <button className='code-button' onClick={viewProject}>Code <i className="fa-solid fa-code"></i></button>
           </div>
         </div>
       </section>

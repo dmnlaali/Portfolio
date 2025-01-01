@@ -119,8 +119,14 @@ html, body {
     gap: 2rem 4rem;
     padding: 2rem;
     margin-right: 10rem;
-    overflow-y: auto; /* Allow vertical scrolling */
-    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    overflow-y: hidden;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.project-container::-webkit-scrollbar {
+    display: none;
 }
 
 .project-card {
@@ -137,8 +143,12 @@ html, body {
     filter: blur(5px);
     transform: translateY(100px);
     transition: all 0.7s;
-    touch-action: pan-y; /* Allow vertical touch gestures */
-    -webkit-touch-callout: none; /* Prevent the long-press menu */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.project-card::-webkit-scrollbar {
+    display: none;
 }
 
 .project-card.show {
@@ -205,20 +215,7 @@ html, body {
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
-}
-
-.project-card .code-button {
-    position: relative;
-    bottom: 4.5rem;
-    left: 12rem;
-    padding: 10px 10px;
-    font-size: 1rem;
-    font-weight: 600;
-    background: linear-gradient(90deg, #1a1a1a, #232323);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
-    border-radius: 10px;
-    margin-top: 2rem;
+    z-index: 2;
 }
 
 .project-card button:hover {
@@ -246,6 +243,7 @@ html, body {
     background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 1;
 }
 
 .project-card:hover::after {
@@ -865,10 +863,6 @@ body.modal-open {
     to { opacity: 1; }
 }
 
-.main-title {
-    width: 50%;
-}
-
 /* Mobile-first media queries */
 @media screen and (max-width: 768px) {
     /* Main section adjustments */
@@ -898,25 +892,30 @@ body.modal-open {
     }
 
     .project-container {
-        margin-right: 1rem;
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+        padding: 1rem;
+        margin: 0;
         width: 100%;
+        overflow-x: hidden;
     }
 
     .project-card {
-        width: calc(100% - 2rem);
+        width: 100%;
         height: auto;
         min-height: 18rem;
-        margin: 0 auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
     }
 
     .project-card .code-button {
+        position: relative;
+        bottom: auto;
         left: auto;
-        right: 1rem;
-        bottom: 1rem;
-        padding: 8px 8px;
+        right: auto;
+        margin-top: 1rem;
     }
 
     /* About section adjustments */
@@ -1026,6 +1025,19 @@ body.modal-open {
         width: calc(100% - 2rem);
         justify-content: center;
         padding: 8px 16px;
+    }
+
+    .project-card .project-button,
+    .project-card .code-button {
+        position: relative;
+        width: auto;
+        margin: 0.5rem 0;
+        z-index: 2;
+    }
+
+    .project-card .code-button {
+        margin-top: 0.5rem;
+        margin-left: 0;
     }
 }
 

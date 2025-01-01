@@ -76,27 +76,28 @@ function App() {
       <div className="modal-overlay" onClick={closeContactModal}></div>
       <Navbar />  
       <main className='main'>
-        <p>Hey, I'm DMA</p>
-        <h1>A FULL TIME SOFTWARE DEVELOPER</h1>
-        <button onClick={() => {
-          document.querySelector('#projects').scrollIntoView({ 
-            behavior: 'smooth'
-          });
-        }}>Projects <i className="fa-solid fa-arrow-right"></i></button>
-        <button onClick={() => {
-          document.querySelector('#about').scrollIntoView({ 
-            behavior: 'smooth'
-          });
-        }}>About <i className="fa-solid fa-arrow-right"></i></button>
-        <button onClick={() => {
-          document.querySelector('#experience').scrollIntoView({ 
-            behavior: 'smooth',
-            animation: 'fadeIn 3s ease'
-          });
-        }}>Experience <i className="fa-solid fa-arrow-right"></i></button>
+        <p className="intro-text">Hey, I'm DMA</p>
+        <h1 className="main-title">A FULL TIME SOFTWARE DEVELOPER</h1>
+        <div className="nav-buttons">
+          <button onClick={() => {
+            document.querySelector('#projects').scrollIntoView({ 
+              behavior: 'smooth'
+            });
+          }}>Projects <i className="fa-solid fa-arrow-right"></i></button>
+          <button onClick={() => {
+            document.querySelector('#about').scrollIntoView({ 
+              behavior: 'smooth'
+            });
+          }}>About <i className="fa-solid fa-arrow-right"></i></button>
+          <button onClick={() => {
+            document.querySelector('#experience').scrollIntoView({ 
+              behavior: 'smooth'
+            });
+          }}>Experience <i className="fa-solid fa-arrow-right"></i></button>
+        </div>
       </main>
       <section id='projects'>
-        <h1 className="hidden">Projects<i className="fa-solid fa-folder-open"></i></h1>
+        <h1 className="hidden section-title">Projects<i className="fa-solid fa-folder-open"></i></h1>
         <div className='project-container'>
           <div className='project-card'>
             <h2>Unplug</h2>
@@ -137,7 +138,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section id='about' className="hidden">
+      <section id='about' className="hidden about-section">
         <h1>About<i className="fa-solid fa-user"></i></h1>
         <div className='about-container'>
           <h2>Who am I?</h2>
@@ -156,59 +157,110 @@ function App() {
         </div>
       </section>
       <div className="contact-Modal">
-        <h2>Let's Talk</h2>
-        <button onClick={closeContactModal} className="close-btn">
-          <i className="fa-solid fa-times"></i>
-        </button>
-        <form onSubmit={handleSubmit}>
-          <input 
-            type="text" 
-            name="user_name"
-            placeholder="Your Name" 
-            required 
-            minLength="2"
-          />
-          <input 
-            type="email" 
-            name="user_email"
-            placeholder="Your Email" 
-            required 
-          />
-          <textarea 
-            name="message"
-            placeholder="Your Message" 
-            required 
-            minLength="10"
-          ></textarea>
-          <div className="modal-buttons">
-            <button 
-              type="submit" 
-              disabled={isSubmitting}
-              className={isSubmitting ? 'loading' : ''}
-            >
-              {isSubmitting ? (
-                <>Sending... <i className="fa-solid fa-spinner fa-spin"></i></>
-              ) : (
-                <>Send Message <i className="fa-solid fa-paper-plane"></i></>
-              )}
-            </button>
-            <button type="reset" className="clear-btn">
-              Clear All <i className="fa-solid fa-eraser"></i>
-            </button>
-          </div>
-          {submitStatus && (
-            <div className={`submit-status ${submitStatus}`}>
-              {submitStatus === 'success' ? 
-                'Message sent successfully!' : 
-                'Failed to send message. Please try again.'}
+        <div className="modal-content">
+          <h2>Let's Talk</h2>
+          <button onClick={closeContactModal} className="close-btn">
+            <i className="fa-solid fa-times"></i>
+          </button>
+          <form onSubmit={handleSubmit}>
+            <input 
+              type="text" 
+              name="user_name"
+              placeholder="Your Name" 
+              required 
+              minLength="2"
+            />
+            <input 
+              type="email" 
+              name="user_email"
+              placeholder="Your Email" 
+              required 
+            />
+            <textarea 
+              name="message"
+              placeholder="Your Message" 
+              required 
+              minLength="10"
+            ></textarea>
+            <div className="modal-buttons">
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className={isSubmitting ? 'loading' : ''}
+              >
+                {isSubmitting ? (
+                  <>Sending... <i className="fa-solid fa-spinner fa-spin"></i></>
+                ) : (
+                  <>Send Message <i className="fa-solid fa-paper-plane"></i></>
+                )}
+              </button>
+              <button type="reset" className="clear-btn">
+                Clear All <i className="fa-solid fa-eraser"></i>
+              </button>
             </div>
-          )}
-        </form>
+            {submitStatus && (
+              <div className={`submit-status ${submitStatus}`}>
+                {submitStatus === 'success' ? 
+                  'Message sent successfully!' : 
+                  'Failed to send message. Please try again.'}
+              </div>
+            )}
+          </form>
+        </div>
       </div>
-      <section id='experience'>
+      <section id='experience' className="experience-section">
         <h1 className="hidden">Experience<i className="fa-solid fa-briefcase"></i></h1>
         <p className='experience-text hidden'>Hover over the circles to see my skills</p>
         <p className='experience-total'>Total Years of Experience: <span>3</span></p>
+        
+        <div className="experience-mobile">
+          <div className="experience-item">
+            <i className="fa-brands fa-html5"></i>
+            <div className="experience-details">
+              <h3>HTML + CSS</h3>
+              <div className="progress-bar">
+                <div className="progress" style={{width: '90%'}}></div>
+              </div>
+            </div>
+          </div>
+          <div className="experience-item">
+            <i className="fa-brands fa-js"></i>
+            <div className="experience-details">
+              <h3>JavaScript</h3>
+              <div className="progress-bar">
+                <div className="progress" style={{width: '85%'}}></div>
+              </div>
+            </div>
+          </div>
+          <div className="experience-item">
+            <i className="fa-brands fa-react"></i>
+            <div className="experience-details">
+              <h3>React</h3>
+              <div className="progress-bar">
+                <div className="progress" style={{width: '80%'}}></div>
+              </div>
+            </div>
+          </div>
+          <div className="experience-item">
+            <i className="fa-brands fa-node-js"></i>
+            <div className="experience-details">
+              <h3>Node.js</h3>
+              <div className="progress-bar">
+                <div className="progress" style={{width: '75%'}}></div>
+              </div>
+            </div>
+          </div>
+          <div className="experience-item">
+            <span className="ts-icon">TS</span>
+            <div className="experience-details">
+              <h3>TypeScript</h3>
+              <div className="progress-bar">
+                <div className="progress" style={{width: '70%'}}></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="middle-line hidden">
           <div className="middle-line-circle">
             <p className='middle-line-circle-text'><i className="fa-brands fa-html5"></i>HTML + CSS</p>
@@ -227,7 +279,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section id='certificates' className="hidden">
+      <section id='certificates' className="hidden certificates-section">
         <h1>Certificates<i className="fa-solid fa-certificate"></i></h1>
         <div className="certificates-container">
           <div className="certificate-card">

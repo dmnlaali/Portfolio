@@ -119,6 +119,8 @@ html, body {
     gap: 2rem 4rem;
     padding: 2rem;
     margin-right: 10rem;
+    overflow-y: auto; /* Allow vertical scrolling */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
 }
 
 .project-card {
@@ -135,6 +137,8 @@ html, body {
     filter: blur(5px);
     transform: translateY(100px);
     transition: all 0.7s;
+    touch-action: pan-y; /* Allow vertical touch gestures */
+    -webkit-touch-callout: none; /* Prevent the long-press menu */
 }
 
 .project-card.show {
@@ -859,6 +863,10 @@ body.modal-open {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+.main-title {
+    width: 50%;
 }
 
 /* Mobile-first media queries */

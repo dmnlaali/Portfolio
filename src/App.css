@@ -79,6 +79,7 @@ html, body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: fadeInLeft 2s ease-out 0.5s both;
+    width: 75%;
 }
 
 .main button {
